@@ -1,9 +1,12 @@
 name: "ZAP Baseline Scan"
 
 on:
-  schedule:
-    - cron:  '0 18 * * 6'
-
+  push:
+    branches:
+      - '**' 
+  pull_request:
+    types: [opened, synchronize, reopened]
+    
 jobs:
   zap_scan:
     runs-on: ubuntu-latest
